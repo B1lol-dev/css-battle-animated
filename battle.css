@@ -1,0 +1,481 @@
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;   
+    }
+
+    .wrapper{
+        background-color: darkblue;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: 1px solid white;
+    }
+
+
+
+    .wrapper.aqua{
+        background-color: #6592cf;
+    }
+    .circle_wrapper{
+        height: 400px;
+        width: 700px;
+        background: #243d83;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover > .circle_dark::before{
+            animation: circle_dark_anim 1s cubic-bezier(0, 0, 1, 1) infinite;
+        }
+    }
+    .circle_dark{
+        height: 500px;
+        width: 500px;
+        border-radius: 50%;
+        border: 100px solid #6592cf;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::before{
+            content: "";
+            position: absolute;
+            height: 100px;
+            border-radius: 50%;
+            width: 100px;
+            background-color: #eeb850;
+        }
+    }
+
+    @keyframes circle_dark_anim {
+        0%{
+
+        }
+        10%{
+            border: 10px solid #243d83;
+            outline: 10px solid #eeb850; 
+        }
+        100%{
+            border: 100px solid #243d83;
+            outline: 10px solid #eeb850;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+    .wrapper.red{
+        background-color: #ac474b;
+    }
+    .gift_wrapper{
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        top: 50px;
+
+        &:hover > .gift_bow{
+            top: -80%;
+            transform: rotateZ(60deg) translate(130px, -140px);
+        }
+    }
+    .gift_bow{
+        display: flex;
+        transform: translateX(-12px);
+        position: absolute;
+        top: -100px;
+        transition: .5s;
+
+        & .bow_item{
+            background-color: white;
+            height: 80px;
+            width: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin-inline: -7px;
+
+            &:first-child{
+                border-radius: 50% 50% 0 50%;
+
+                &::before{
+                    border-radius: 50% 50% 0 50%;
+                }
+            }
+            &:last-child{
+                border-radius: 50% 50% 50% 0;
+
+                &::before{
+                    border-radius: 50% 50% 50% 0;
+                }
+            }
+            &::before{
+                content: "";
+                position: absolute;
+                height: 40px;
+                width: 40px;
+                background-color: #ac474b;
+                border-radius: 50%;
+            }
+        }
+    }
+    .gift{
+        display: flex;
+        height: 250px;
+        max-width: 250px;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 25px;
+        row-gap: 5px;
+        position: relative;
+
+        &::before{
+            content: "";
+            position: absolute;
+            height: 10px;
+            width: 100px;
+            background-color: white;
+            left: 0;
+            transition: .5s ease-in-out;
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            height: 10px;
+            width: 100px;
+            background-color: white;
+            right: 25px;
+            transition: .5s ease-in-out;
+        }
+        & .gift_item{
+        height: 100px;
+        width: 100px;
+        background: white;
+        }
+        &:hover::before{
+            transform: rotateZ(-135deg) translate(80px, -270%);
+        }
+        &:hover::after{
+            transform: rotateZ(135deg) translate(-80px, -270%);
+        }
+    }
+
+
+
+
+
+    .ring_wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+        &:hover > .ring_bottom{
+            animation: ring_movement .5s ease-in-out infinite reverse;
+        }
+        &:hover > .ring{
+            animation: bell_swing 1s ease infinite;
+        }
+    }
+    .ring_top, .ring_bottom {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+    }
+    .ring_top {
+        background-color: #f2ad43;
+        margin-bottom: -50px;
+    }
+    .ring_bottom {
+        background-color: #824b20;
+        position: absolute;
+        bottom: -50px;
+        z-index: 1;
+    }
+    .ring {
+        height: 270px;
+        width: 250px;
+        border-radius: 250px 250px 50px 50px;
+        background-color: #e08027;
+        position: relative;
+        z-index: 2;
+    }
+
+    @keyframes bell_swing {
+        0% {
+            transform: rotate(0deg);
+        }
+        25% {
+            transform: rotate(-5deg);
+        }
+        50% {
+            transform: rotate(5deg);
+        }
+        75% {
+            transform: rotate(-5deg);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+    @keyframes ring_movement {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateX(-10px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+
+
+
+
+    .ice.nature_wrapper{
+        /* background-color: #f2ad43; */
+        background: url('https://i.ytimg.com/vi/neCMRoyED4I/maxresdefault.jpg');
+        background-size: cover;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid white;
+        transition: .5s ease-in-out;
+
+        &:hover{
+            background: #f2ad43;
+        }
+
+        &:hover > .sun{
+            margin-bottom: 100px;
+            background-color: #fff58f;
+
+            &::before{
+                opacity: 0;
+            }
+        }
+
+        &:hover >  .mountain_left{
+            filter: brightness(100%);
+        }
+        &:hover > .mountain_right{
+            filter: brightness(100%) !important;
+        }
+    }
+    .sun{
+        height: 80px;
+        width: 80px;
+        background-color: #fff;
+        border-radius: 50%;
+        margin: 0 auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        transition: .5s ease-in-out;
+
+        margin-bottom: -20px;
+
+        &::before{
+            content: "";
+            position: absolute;
+            transition: .5s ease-in-out;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            background-color: black;
+        }
+    }
+    .mountain_left,
+    .mountain_right{
+        border-radius: 50%;
+        height: 250px;
+        width: 250px;
+        position: absolute;
+        bottom: -100px;
+        filter: brightness(50%);
+        transition: .5s ease-in-out;
+    }
+    .mountain_right{
+        background-color: #824b20;
+        filter: brightness(50%) !important;
+        right: -110px;
+    }
+    .mountain_left{
+        background-color: #e08027;
+        left: -130px;
+    }
+
+
+
+
+
+
+
+
+    .circle{
+        width: 300px;
+        height: 300px;
+        background: #fff1c1;
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+        /* display: fl; */
+        transition: .5s;
+
+        &:hover{
+            backgroundc-color: #fff1c1;
+            background-image: url("https://i.pinimg.com/originals/dd/28/1a/dd281a35d76a962191b776394cd06d2c.gif");
+            background-size: cover;
+            background-position: center;
+        }
+    }
+    .mountain_small,
+    .mountain_big{
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background-color: #fe5f55;
+        transform: rotate(45deg) translateY(70px) translateX(150px);
+    }
+    .mountain_small{
+        left: -150px;
+        top: 80px;
+    }
+
+
+
+
+
+
+
+    .wrapper.black{
+        background-color: #191919;  
+    }
+    .stairs{
+        width: 200px;
+        height: 300px;
+        background: #4F77FF;
+        border-radius: 150px 150px 0 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        gap: 10px;
+        position: relative;
+        overflow: hidden;
+
+        &:hover::before{
+            transform: rotateZ(30deg) translateX(0px);
+        }
+
+        &::before{
+            content: "";
+            position: absolute;
+            height: 90%;
+            transition: 1s ease-in-out;
+            bottom: 0;
+            transform:  translateX(190px);
+            box-shadow: 0px 0 100px 100px yellow;
+        }
+    }
+    .stair{
+        width: 80%;
+        height: 50px;
+        background-color: #191919;
+        position: relative;
+
+
+        &:nth-child(1){
+            width: 20%;
+        }
+        &:nth-child(2){
+            width: 40%;
+        }
+        &:nth-child(3){
+            width: 60%;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+    .ice-wrapper{
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+    }
+    .ice{
+        background: wheat;
+        height: 300px;
+        width: 200px;
+        border-radius: 200px 200px 100px 100px;
+        z-index: 1;
+        position: relative;
+    }
+    .ice.real_ice{
+        &:hover::before , &:hover:after{
+            display: block;
+        }
+
+        &::before , &::after{
+            border-radius: 50%;
+            background-color: darkblue;
+            display: none;  
+        }
+
+        &::before{
+            content: "";
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            top: -5px;
+            left: -20px;
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            height: 80px;
+            width: 80px;
+            top: 80px;
+            left: -30px;
+        }
+
+    }
+    .stick{
+        height: 100px;
+        width: 50px;
+        background: coral;
+        border-radius: 0 0 20px 20px;
+        bottom: -50px;
+        margin: 0 auto;
+    }
+    .ice-shadow{
+        width: 50px;
+        height: 10px;
+        margin: 0 auto;
+        background-color: rgb(144, 51, 17);
+    }
