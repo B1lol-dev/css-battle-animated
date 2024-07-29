@@ -19,6 +19,132 @@
 
 
 
+.wrapper.frog_bg{
+    background-color: #293462;
+}
+
+.frog_wrapper{
+    display: flex;
+    position: relative;
+
+    &:hover > .frog_eyes > .frog_eye::after{
+        content: "✦";
+        color: white;
+        font-size: 20px;
+        transform: scale(200%);
+    }
+}
+
+.frog_eyes{
+    display: flex;
+    gap: 50px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -50px;
+    z-index: 3;
+}
+.frog_eye{
+    height: 150px;
+    width: 150px;
+    background-color: #FE5F55;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before{
+        content: "";
+        height: 100px;
+        width: 100px;
+        background-color: #FFF1C1;
+        border-radius: 50%;
+    }
+
+    &::after{
+        content: "";
+        height: 30px;
+        width: 30px;
+        background-color: #293462;
+        position: absolute;
+        border-radius: 50%;
+        transition: .2s ease-in-out;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 5px;
+    }
+}
+
+.frog_head{
+    height: 300px;
+    width: 400px;
+    border-radius: 150px;
+    background-color: #FE5F55;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+
+    &::before{
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: #FE5F55;
+        border-radius: 150px;
+        position: absolute;
+    }
+}
+
+
+.frog_nose{
+    display: flex;
+    position: absolute;
+    gap: 10px;
+    top: 50%;
+    z-index: 2;
+
+    &::before{
+        content: "";
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        background-color: #293462;
+    }
+    &::after{
+        content: "";
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        background-color: #293462;
+    }
+}
+
+.frog_mouth{
+    height: 100px;
+    width: 100%;
+    background-color: #A64942;
+    position: absolute;
+    bottom: 0;
+    bottom: 0;
+
+    &::after{
+        content: "";
+        height: 50px;
+        width: 400px;
+        background-color: #FE5F55;
+        position: absolute;
+        top: -20px;
+        border-radius: 0 0 50% 50%;
+    }
+}
+
+
 
 .wrapper.guitar_bg{
     background-color: #F3AC3C;
@@ -65,6 +191,19 @@
     justify-content: center;
     align-items: center ;
 
+    &:hover > .guitar_notes > .g_note:nth-child(3){
+        transform: translate(-50px , -150px);
+        opacity: 1;
+    }
+    &:hover > .guitar_notes > .g_note:nth-child(2){
+        transform: translate(100px , -200px);
+        opacity: 1;
+    }
+    &:hover > .guitar_notes > .g_note:nth-child(1){
+        transform: translate(200px , -100px);
+        opacity: 1;
+    }
+
     &::before{
         content: "";
         position: absolute;
@@ -73,6 +212,8 @@
         background-color: #1A4341;
         border-radius: 50%;
         border: 10px solid #F3AC3C;
+
+        
     }
 }
 .guitar_hand{
@@ -112,11 +253,20 @@
     }
 }
 
+.guitar_notes{
+    display: flex;
+    position: relative;
+}
 
-
-
-
-
+.g_note{
+    font-size: 70px;
+    position: absolute;
+    top: -50px;
+    left: -20px;
+    opacity: 0;
+    user-select: none;
+    transition: 1.5s ease-in-out;
+}
 
 
 .wrapper.piano_bg{
@@ -1145,7 +1295,7 @@
     transition: .5s ease-in-out;
 
     &:hover{
-        background: #f2ad43;
+        background-color: #f2ad43;
     }
 
     &:hover > .sun{
@@ -1322,7 +1472,7 @@
     position: relative;
 }
 .ice.real_ice{
-    &:hover::before , &:hover:after{
+    &:focus::before , &:focus:after{
         display: block;
     }
 
