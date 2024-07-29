@@ -1295,7 +1295,7 @@
     transition: .5s ease-in-out;
 
     &:hover{
-        background-color: #f2ad43;
+        background: #f2ad43;
     }
 
     &:hover > .sun{
